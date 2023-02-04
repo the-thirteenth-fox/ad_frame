@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:ad_frame/models/config.dart';
+import 'package:ad_frame/utils/logger.dart';
 import 'package:http/http.dart';
 
 class AdConfigApi {
@@ -10,11 +9,11 @@ class AdConfigApi {
       final response = await get(Uri.parse(path));
       if (response.statusCode == 200) {
         final result = AdFrameConfig.fromJson(response.body);
-        log('ADFRAME :: succes to get configs 😻');
+        Log.instance.log('ADFRAME :: succes to get configs 😻');
         return result;
       }
     } catch (e) {
-      log('ADFRAME :: onGetConfig :: $e');
+      Log.instance.log('ADFRAME :: onGetConfig :: $e');
     }
     return null;
   }

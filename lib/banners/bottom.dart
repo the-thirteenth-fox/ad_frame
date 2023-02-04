@@ -1,6 +1,6 @@
 import 'package:ad_frame/models/element_config.dart';
+import 'package:ad_frame/utils/url_launcher.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class BottomBanner extends StatelessWidget {
   const BottomBanner(
@@ -25,7 +25,7 @@ class BottomBanner extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 InkResponse(
-                  onTap: () => launchUrlString(config.link),
+                  onTap: () => openLink(config.link),
                   child: Image.network(
                     config.imgPath,
                     fit: BoxFit.cover,
